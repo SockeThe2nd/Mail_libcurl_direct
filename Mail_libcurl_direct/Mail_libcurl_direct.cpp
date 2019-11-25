@@ -8,8 +8,11 @@
 
 using namespace std;
 
-static const string MAIL_SERVER = "smtp://smtp.gmx.net:587";
-static const string USER = "user:pass";
+static const string MAIL_SERVER = "smtp://smtpauth.htwsaar.de:587";
+static const string USER = "user:password";
+
+static const string FROM = "sender-addr";
+static const string TO = "receiver-addr";
 
 int main(void)
 {
@@ -20,8 +23,8 @@ int main(void)
 	MailSender sender = MailSender(MAIL_SERVER, USER);
 
 	//Senden einer Mail. Der MailSender kann mehrfach verwendet werden sollen mehrere Mails versandt werden. 
-	sender.send("roland.paltz@gmx.net", "roland.paltz@gmx.net", "Test-Betreff", "Inhalt als text", "<b>Inhalt als HTML<\b>", "Image.png");
+	sender.send(FROM, TO, "Test-Betreff", "Inhalt als text", "<b>Inhalt als HTML<\b>", "Image.png");
 	//Sollen nur text-Mails versendet werden, so kann der HTML-Parameter leer gelassen werden.
-	sender.send("roland.paltz@gmx.net", "roland.paltz@gmx.net", "Test-Betreff ohne HTML", "Inhalt als Text", "", "Image.png");
-	return sender.send("roland.paltz@gmx.net", "roland.paltz@gmx.net", "Test-Betreff ohne Inhalt");
+	sender.send(FROM, TO,  "Test-Betreff ohne HTML", "Inhalt als Text", "", "Image.png");
+	return sender.send(FROM, TO, "Test-Betreff ohne Inhalt");
 };
