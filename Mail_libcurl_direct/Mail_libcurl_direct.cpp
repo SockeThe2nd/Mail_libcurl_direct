@@ -9,10 +9,10 @@
 using namespace std;
 
 static const string MAIL_SERVER = "smtp://smtpauth.htwsaar.de:587";
-static const string USER = "user:password";
+static const string USER = "eev-netcalc@htwsaar.de:15042019";
 
-static const string FROM = "sender-addr";
-static const string TO = "receiver-addr";
+static const string FROM = "eev-netcalc@htwsaar.de";
+static const string TO = "roland.paltz@gmx.net";
 
 int main(void)
 {
